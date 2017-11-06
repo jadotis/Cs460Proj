@@ -1,0 +1,47 @@
+﻿table {
+    width: 70%;
+    border: 3px solid gray;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+th {
+    height: 50px;
+}
+
+
+tr:hover {
+    background-color: #f5f5f5
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+tr {
+    text-align: center;
+    padding: 10px;
+    border-bottom: 2px solid darkslategray;
+    background-color: rgba(200, 243, 253, 0.4);
+}
+
+th {
+    color: darkmagenta;
+    background-color: rgba(0,84,121,.65);
+}
+
+
+tr:hover {
+    background-color: rgba(0,140,186,.65);
+    color: blueviolet;
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+}
