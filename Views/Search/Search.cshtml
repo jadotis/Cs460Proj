@@ -1,0 +1,47 @@
+﻿<div ng-controller="Search" ng-init="makeQuery()">
+
+
+
+    <h1>Search Results</h1>
+    <h2 style="font-size: 28px; text-align: center; color: white;">Showing results for: {{query}}</h2>
+
+
+    <p>Results by: Photos</p>
+    <div id="photos">
+        <table>
+            <tr ng-repeat="photo in photos">
+                <td><img style="margin: auto; width: 250px; padding: 10px;" src="http://localhost:8888/api/albumPhoto/getPhotos/{{photo}}" /></td>
+            </tr>
+            <p style="color: darkslategrey; font-size: 24px; font-style: italic; text-align: center;">{{photoError}}</p>
+        </table>
+
+
+    </div>
+    <hr />
+    <p>Results by: Tags</p>
+    <div id="tags">
+        <table>
+            <tr ng-repeat="tag in tags">
+                <td><img style="margin: auto; width: 250px; padding: 10px;" src="http://localhost:8888/api/albumPhoto/getPhotos/{{tag}}" </td>
+            </tr>
+            <p style="color: darkslategray; font-size: 24px; font-style: italic; text-align: center;">{{tagError}}</p>
+        </table>
+
+
+
+    </div>
+    <hr />
+    <p>Results by: Comments</p>
+    <div id="comments">
+        <table>
+            <tr ng-repeat="comment in comments">
+                <td><img style="margin: auto; width: 250px; padding: 10px;" src="http://localhost:8888/api/albumPhoto/getPhotos/{{comment}}" </td>
+            </tr>
+            <p style="color: darkslategray; font-size: 24px; font-style: italic; text-align: center;">{{commentError}}</p>
+        </table>
+
+
+
+
+    </div>
+</div>

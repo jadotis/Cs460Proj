@@ -1,0 +1,32 @@
+﻿<script src="https://use.fontawesome.com/7ee1c25fbc.js"></script>
+<div class="jumbotron" ng-controller="Home" ng-init="getUser();">
+    <h1 class="display-3"> <i class="fa fa-camera-retro fa-lg" aria-hidden="true"></i>                        Flickr 2017 </h1>
+    <p class="lead">Welcome to the Photo Sharing App! Login or Register to post photos, otherwise head to the photo stream and check out other users' content! </p>
+    <a ng-show="!loggedIn" class="btn btn-primary btn-lg" role="button" href="Login/Login">Log In Or Sign Up Here!!!!</a>
+    <h1 style="color: darkslategrey; text-decoration: underline;" ng-show="loggedIn">Welcome: {{user}}</h1>
+    <hr class="my-4">
+    <h1 style="text-decoration: underline;">THE TOP 10 Users of Flickr 2017</h1>
+    <div >
+        <ol style="list-style: decimal; background-color: rgba(176, 159, 159, 0.2); border-radius: 10px;" >
+            <li ng-repeat="user in bestUsers">{{user.firstName}}&nbsp;{{user.lastName}}&nbsp;(Email: {{user.email}})</li>
+        </ol>
+        <hr />
+    </div>
+    <h1 style="text-decoration: underline;">THE TOP 10 Tags of Flickr 2017</h1>
+    <p>Click the tag name to view the photos.</p>
+    <div>s
+        <ol style="list-style: decimal; background-color: rgba(176, 159, 159, 0.2); border-radius: 10px;">
+            <li ng-repeat="tag in bestTags" >
+                <a href="#" ng-click="getThePhotos(tag.tagName)">{{tag.tagName}}</a>
+                <p>Number of Times Used: {{tag.count}}</p>
+                <div id={{tag.tagName}} ng-show="false">
+                    <img ng-repeat="ID in PIDS" src="http://localhost:8888/api/albumPhoto/getPhotos/{{ID}}" style="height: 200px; width: 200px; padding: 2px; display: inline-block"/>
+                </div>
+            </li>
+        </ol>
+        <hr />
+    </div>
+
+    <p id="signature">James Otis & James Mortenson © 2017</p>
+
+</div>

@@ -1,0 +1,31 @@
+﻿<link type="text/css" href="~/Content/login.css" rel="stylesheet" />
+<div ng-controller="Login" onload="returnStatus()">
+    <div class="main-signin">
+        <div class="main-signin__head">
+            <p>SIGN IN</p>
+        </div>
+        <div class="main-signin__middle">
+            <div class="middle__form">
+                <input type="text" placeholder="Username" ng-model="loginUsername">
+                <input type="password" placeholder="Password" ng-model="loginPassword">
+                <input type="submit" value="Continue" ng-click="login()">
+                <p id="errorText">{{loginError}}</p>
+                <p id="successText">{{loginSuccess}}</p>
+            </div>
+        </div>
+        <div class="main-signin__foot">
+                <p id="Header">Or Register Here</p>
+                <hr/>
+                <input type="text" placeholder="firstName" ng-model="firstName" required>
+                <input type="text" placeholder="lastName" ng-model="lastName" required>
+                <input type="text" placeholder="email" ng-model="usermail" required>
+                <input type="date" placeholder="dob" ng-model="dob" required>
+                <input type="text" placeholder="hometown" ng-model="hometown" required>
+                <input type="text" placeholder="gender" ng-model="gender" required>
+                <input type="password" placeholder="password" ng-model="password" required>
+                <input  id="submitButton" type="submit" value="Continue" ng-click="validate()">
+                <p id="errorText">{{error}}</p>
+                <p id="successText">{{success}}</p>
+        </div>
+    </div>
+</div>

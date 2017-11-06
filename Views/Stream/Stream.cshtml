@@ -1,0 +1,17 @@
+﻿
+<h1 style="color: cadetblue; padding-left:20px; text-decoration:underline;">Welcome to the PhotoStream</h1>
+<div ng-controller="Stream" ng-init="getUser()" style="background-color: gray; color:darkslategrey;">
+    <div ng-repeat="dataBlock in data" style="border: 1px solid darkblue; background-color: lightblue;">
+        <img style="margin: auto; width: 250px; padding: 10px;" src="http://localhost:8888/api/albumPhoto/getPhotos/{{dataBlock.PID}}" />
+        <p style="padding-left: 20px; border: 2px solid cadetblue;">Likes: {{dataBlock.numLikes}} <a style="padding: 10vw;" href="#" ng-show="showVar" ng-click="addLike(dataBlock.PID)">Like?</a></p>
+        <h4 style="margin: auto; padding-left: 2.5vw; text-decoration: underline;">Comments:</h4>
+        <div ng-repeat="comment in dataBlock.comments" ng-if="comment != null">
+            <li style="padding-left: 5vw">{{comment}}</li>
+        </div>
+            <hr />
+        <label style="margin-left: 2.5vw">Leave a comment?</label><br/>
+        <input id={{dataBlock.PID}} ng-model="addComment" style="margin-left: 2.5vw; width: 30vw !important; border-radius: 10px;"></input>
+        <br />
+        <button class="btn btn-primary" type="submit" style="margin-top: 6px; margin-left: 4px; margin-bottom:5px; padding: 2px 10px 2px 10px;" ng-click="makeComment(dataBlock.PID)">Submit Comment</button>
+    </div>
+</div>

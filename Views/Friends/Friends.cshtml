@@ -1,0 +1,57 @@
+﻿<div ng-controller="Friends" ng-init="getUser()">
+    <link rel="stylesheet" type="text/css" href="../../Content/Friends.css" />
+    <h1>Friends</h1><br />
+
+    <label>Search for a Friend: </label> <br />
+
+    <input ng-model="query" type="search" name="friends" value=  placeholder="Friend's' Name" />
+    <button type="submit" ng-click="search()" class="btn btn-primary" style="align:inline-block;">Search</button>
+    <p style="color:red;">{{errorText}}</p>
+    <p style="color:green">{{results}}</p>
+    <br />
+    <div>
+        <table >
+            <thead>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Email</th>
+                <th>Add or Remove Friend</th>
+            </thead>
+            <tbody ng-repeat="friend in friendsSearch">
+                <tr>
+                    <td>{{friend.firstname}}</td>
+                    <td>{{friend.lastname}}</td>
+                    <td>{{friend.email}}</td>
+                    <td><button class="btn btn-default btn-circle" ng-click="addFriend(friend.email)">&#43;</button>&nbsp;<button class="btn btn-default btn-circle" ng-click="removeFriend(friend.email)">&#45;</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="Friend Reccomendations" style="padding-top: 50px; margin-top: 10px;">
+        <h2 style="margin: auto; padding: 10px; text-decoration: underline; color: darkslategray; text-align: center;">Friends of Friends</h2>
+        <p style="margin: auto; color:cadetblue; font-size: 18px; font-style: italic; text-align: center;">{{noFriends}}</p>
+        <ul ng-repeat="reco in reccomendations">
+            <li>{{reco}}</li>
+        </ul>
+    </div>
+    <hr />
+    <div id="reccomendedPhotos" style="margin: auto;">
+        <h2 style="margin: auto; padding: 10px; text-decoration: underline; color:darkslategray; text-align: center;">Photos you may like</h2>
+        <div style="align-content: center; align-items: center;">
+            <img ng-repeat="pid in photoRecs" style="display: inline-block; width: 200px; height: 150px; margin: auto; padding: 5px;" src="http://localhost:8888/api/albumPhoto/getPhotos/{{pid}}"/>
+        </div>
+    </div>
+    <div style="position:fixed; left: 85vw; top: 15vh; width: 10vw; background-color: cyan">
+        <table style="margin: 0 auto" ng-show="loggedIn">
+            <thead  >
+                <th>FRIENDS</th>
+            </thead>
+            <tbody ng-repeat="friend in friends" >
+                <tr>
+                    <td>{{friend}}</td>
+                </tr>
+            </tbody>            
+        </table>
+    </div>
+
+</div>
